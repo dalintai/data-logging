@@ -53,10 +53,72 @@ slave 节点启动后，在 locust 监控中能看到
 =========================
 7-15
 =========================
+未更新
+
+=========================
+7-20
+=========================
+
+错题降低差不多100，其余正常
+
+了解到新的一款linux的漏洞扫描器：https://blog.csdn.net/ronghua_liu/article/details/5904670
+但是还没有测试过
+
+ 1.环境：linux
+
+2.安装skipfish前要有安装的软件如下
+
+首先sudo -s，进入超级用户；
+(PS:首先安装需要的工具包， apt-get install libssl-dev build-essential zlibc zlib-bin libidn11-dev libidn11），具体安装过程如下：
+
+a.zlib 
+
+wget http://prdownloads.sourceforge.net/libpng/zlib-1.2.5.tar.gz?download
+tar -zxvf zlib-1.2.5.tar.gz
+cd zlib-1.2.5
+./configure
+make & make install
+
+b.OpenSSL
+
+wget http://www.openssl.org/source/openssl-0.9.8n.tar.gz
+
+tar -zxvf openssl-0.9.8n.tar.gz
+cd openssl-0.9.8n
+./config
+make &  make install
+
+c.libidn
 
 
+wget http://ftp.gnu.org/gnu/libidn/libidn-1.8.tar.gz
+tar -zxvf libidn-1.8
+cd libidn-1.8
+./configure
+make &  make install
 
+3.编译skipfish
 
+wget http://skipfish.googlecode.com/files/skipfish-1.26b.tgz
+tar -zxvf skipfish-1.26b.tgz
+cd skipfish-1.26b
+make all
+ 
+好了，新生成了一个skipfish文件
+
+4.使用skipfish
+
+1.选择一个策略
+
+  在skipfish/dictionaries目录下有几个 wl文件。看里面 README-FIRST
+可以知道这几个文件就是要安全检测时的策略。选择一个wl。重命名为skipfish.wl,放在skipfish目录下
+命令:
+cd dictionaries
+cp default.wl ../skipfish.wl
+
+2.运行skipfish
+
+./skipfish -o log http://www.baidu.com 
 
 
 
