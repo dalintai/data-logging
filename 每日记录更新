@@ -136,7 +136,13 @@ burpsuite
        2.密码爆破
      
 sqlmap
-
+       1.使用sqlmap进行注入
+       2.过程：
+              2.1首先使用./sqlmap -u "ip"来查看是否具有注入点
+              2.2然后使用./sqlmap -u "ip" --dbs查看表结构
+              2.3然后使用./sqlmap -u "ip" -D 数据表 --tables找到表里面的字段
+              2.4然后使用./sqlmap -u "ip" -D 数据表 -T 字段名 --dump查看字段里面的详细内容
+              
 
 nmap
 
