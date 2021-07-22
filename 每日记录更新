@@ -145,7 +145,10 @@ sqlmap
               
 
 nmap
-
+       1.windows安装nmap后，不能用powershell启动，只能使用cmd
+              说明：-Pn： 禁用PING检测，这样速度快，并且可以防止有些主机无法ping通而被漏掉不扫描
+       2.nmap -Pn ip -p 22,8080,3306对22，8080，3306这三个端口进行扫描
+       3.nmap -Pn ip -p 1-100是对1~100端口号进行批量扫描
 
 
 
