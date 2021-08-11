@@ -281,6 +281,134 @@ if __name__ == '__main__':
     python发送邮件没有问题，但是邮件发送附件失败了，初步可能是邮件系统没有搞465端口，后期可以用自己的qq邮箱试一下
     题量2400，错题400，还需要加快速度，最近的40题，错10个
     然后就是多线程，现在多线程还没研究透，只能是说可以进行多线程运行，但是不知道怎么去限制线程数
+=========================
+8-11
+========================= 
+       邮件发送附件还是没有成功，然后使用qq邮箱也没成功，只成功了发送普通邮件
+       
+#coding=utf-8
+import smtplib
+from email.mime.text import MIMEText
+msg_from='439098421@qq.com'                                 #发送方邮箱
+passwd='baaomrsazpcebjab'                                   #填入发送方邮箱的授权码
+msg_to='439098421@qq.com'                                  #收件人邮箱
+                            
+subject="python邮件测试"                                     #主题     
+content="123"     #正文
+msg = MIMEText(content)
+msg['Subject'] = subject
+msg['From'] = msg_from
+msg['To'] = msg_to
+
+s = smtplib.SMTP_SSL("smtp.qq.com",465)   #邮件服务器及端口号
+# s.ehlo()  
+# s.starttls()              
+s.login(msg_from, passwd)
+s.sendmail(msg_from, msg_to, msg.as_string())
+print ("发送成功")
+
+错题刷到390左右
+做一套40，做一套20，对标率：17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
