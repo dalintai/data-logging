@@ -346,7 +346,42 @@ print ("发送成功")
 情况一般，区域稳定13/20
 还需要大量刷题，现在刷题就现已20为节点，达到18/20可以扩展，
 httpx文档还要继续看
-
+=========================
+8-26
+========================= 
+区域稳定，但还需要加强
+httpx已经初步研究懂了，可以简单解释下：
+requests：
+       1.导入库：import requests
+       2.请求引用：requests.post(url,headers,data/json)
+locust：
+       1.导入库：from locust import HttpUser,task,User
+       2.请求引用：self.client.post(url,headers,data/json)
+httpx:
+       1.导入库：import httpx
+       2.请求引用：httpx.post(url,headers,data/json)
+       3.导入异步库：import asyncio
+       4.新建异步类：async def main123():
+       4.请求使用：await client.post(url,headers,data/json)
+       5.运行：
+              if __name__=="__main__":
+                     asyncio.run(main1())
+                     asyncio.run(main2())
+                     asyncio.run(main3())
+                     
+说明：
+       1.当使用class的时候，直接运行需要有if __name__=="__main__":，如果直接def开始，就可以直接运行，如果不管class还是def，都想用if __name__=="__main__":的话，
+       格式如下：
+       class test():
+              def test_A():
+              if __name__=="__main__":
+                     test.test_A()
+              
+            
+       def test_A():
+       if __name__=="__main__":
+              test_A()        
+    
 
 
 
