@@ -405,9 +405,36 @@ httpx:
 =========================
 好久没做，正确率大幅度下降，心态不好，还是要保持住13/20+的情况
 
+=========================
+9-16
+=========================
+
+# coding:utf-8
+import requests
+import websocket
 
 
+import json
+from websocket import create_connection
 
+url = 'ws://82.157.123.54:9010/ajaxchattest'#websocket连接地址，地址为虚拟地址
+websocket.enableTrace(True)                      #打开跟踪，查看日志
+
+ws = create_connection(url)           #创建连接
+data =input('输入传输消息:')    
+data2 ='11111111111'   #测试数据
+data3 = {
+		"username":"test",
+		"password":"123456",
+		"version":0.5
+}
+
+
+    # new_data=json.dumps(data,ensure_ascii=False)     #将data转化为字符串
+ws.send(json.dumps(data3))                                #发送请求
+print('收到回复消息:',ws.recv()) 
+print('状态码：',ws.getstatus())
+print('响应头部:',ws.headers)       
 
 
 
